@@ -1,5 +1,5 @@
 const clientId =  "3da5eea80cbc45d89b1364933641e3f1";
-const redirectUri = "spotify-halz.vercel.app";
+const redirectUri = "https://spotify-halz.vercel.app/";
 
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = [
