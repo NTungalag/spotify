@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Playlist Manager</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="sidebar">
+        <div class="logo">
+          <i class="fab fa-spotify"></i>
+          <span>Playlist Manager</span>
+        </div>
+
+        <div class="auth-section" id="auth-section">
+          <button id="login-button" class="login-button">
+            <i class="fab fa-spotify"></i> Login with Spotify
+          </button>
+        </div>
+
+        <div class="menu" id="menu" style="display: none">
+          <ul>
+            <li class="active" id="home-btn">
+              <i class="fas fa-home"></i> Home
+            </li>
+            <li id="search-btn"><i class="fas fa-search"></i> Search</li>
+            <li id="library-btn"><i class="fas fa-book"></i> Your Library</li>
+          </ul>
+        </div>
+
+        <div class="playlists" id="playlists-section" style="display: none">
+          <h3>YOUR PLAYLISTS</h3>
+          <ul id="playlist-list">
+            <!-- Playlists will be loaded here -->
+          </ul>
+          <button class="create-playlist" id="create-playlist-btn">
+            <i class="fas fa-plus"></i> Create Playlist
+          </button>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <div class="header" id="header" style="display: none">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              id="song-search"
+              placeholder="Search for songs..."
+            />
+          </div>
+          <div class="user-profile" id="user-profile">
+            <!-- User info will be loaded here -->
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="welcome-screen" id="welcome-screen">
+            <h1>Welcome to Spotify Playlist Manager</h1>
+            <p>
+              Connect your Spotify account to view and manage your playlists
+            </p>
+            <button id="welcome-login-button" class="login-button">
+              <i class="fab fa-spotify"></i> Login with Spotify
+            </button>
+          </div>
+
+          <div class="playlist-view" id="playlist-view" style="display: none">
+            <div class="playlist-header">
+              <div class="playlist-info">
+                <h2 id="playlist-name">Select a playlist</h2>
+                <p id="playlist-description">
+                  Choose a playlist from the sidebar to view and edit
+                </p>
+              </div>
+            </div>
+            <div class="playlist-tracks" id="playlist-tracks">
+              <!-- Tracks will be loaded here -->
+              <div class="empty-state">
+                <i class="fas fa-music"></i>
+                <p>No playlist selected</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="search-results" id="search-results" style="display: none">
+            <h2>Search Results</h2>
+            <div class="results-container" id="results-container">
+              <!-- Search results will appear here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
