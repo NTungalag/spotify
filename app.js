@@ -1,4 +1,4 @@
-const clientId =  process.env.NEXT_PUBLIC_CLIENT_ID;;
+const clientId =  process.env.NEXT_PUBLIC_CLIENT_ID;
 const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI;
 
 const authEndpoint = "https://accounts.spotify.com/authorize";
