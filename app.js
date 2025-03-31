@@ -1,5 +1,5 @@
-const clientId = ENV.clientId;
-const redirectUri = ENV.redirectUri;
+const clientId = process.env.clientId;
+const redirectUri = process.env.redirectUri;
 
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = [
