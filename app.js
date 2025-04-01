@@ -1,5 +1,5 @@
-const clientId =  "3da5eea80cbc45d89b1364933641e3f1";
-const redirectUri = "https://spotify-halz.vercel.app/";
+const clientId =  import.meta.env.VITE_clientId;
+const redirectUri = import.meta.env.VITE_redirectUri;
 
 const authEndpoint = "https://accounts.spotify.com/authorize";
 const scopes = [
