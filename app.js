@@ -94,10 +94,6 @@ function updateUIAfterLogin() {
   welcomeScreen.style.display = "none";
 
   userProfile.innerHTML = `
-        <img src="${
-          currentUser.images?.[0]?.url ||
-          "https://i.scdn.co/image/ab6775700000ee8518a4a8a5d5d5d5d5d5d5d5d5"
-        }" alt="${currentUser.display_name}">
         <span>${currentUser.display_name}</span>
     `;
 }
