@@ -259,7 +259,6 @@ function renderSearchResults(tracks) {
     resultCard.innerHTML = `
             <div class="result-image">
                 <img src="${track.album.images[1].url}" alt="${track.name}">
-                <div class="play-icon">
                     <i class="fas fa-play"></i>
                 </div>
             </div>
