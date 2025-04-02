@@ -29,7 +29,6 @@ const playlistName = document.getElementById("playlist-name");
 const playlistDescription = document.getElementById("playlist-description");
 const homeBtn = document.getElementById("home-btn");
 const searchBtn = document.getElementById("search-btn");
-const libraryBtn = document.getElementById("library-btn");
 const createPlaylistBtn = document.getElementById("create-playlist-btn");
 
 let currentUser = null;
@@ -46,15 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
   songSearch.addEventListener("input", debounce(handleSearch, 500));
   homeBtn.addEventListener("click", () => showView("home"));
   searchBtn.addEventListener("click", () => showView("search"));
-  libraryBtn.addEventListener("click", () => showView("library"));
-  createPlaylistBtn.addEventListener("click", createNewPlaylist);
+  createPlaylistBtn.addEventListener("click", openPlaylistModal);
 });
 
 function checkAuth() {
   const hash = window.location.hash.substring(1);
   const params = new URLSearchParams(hash);
   const token = params.get("access_token");
-
+  
   if (token) {
     accessToken = token;
     window.history.pushState({}, document.title, window.location.pathname);
@@ -354,10 +352,37 @@ function removeTrackFromPlaylist(trackUri) {
     });
 }
 
-function createNewPlaylist() {
-  const playlistName = prompt("Enter playlist name:");
+function openPlaylistModal() {
+  const modal = document.getElementById("playlistModal");
+  modal.style.display = "flex";
+}
+
+
+function closePlaylistModal() {
+  const modal = document.getElementById("playlistModal");
+  modal.style.display = "none";
+}
+
+document.getElementById("playlistForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const playlistName = document.getElementById("playlistName").value.trim();
   if (!playlistName) return;
 
+  createNewPlaylist(playlistName);
+  closePlaylistModal();
+});
+
+// Close modal by 'X'
+document.querySelector(".close").addEventListener("click", closePlaylistModal);
+
+// Close modal clicking outside
+document.getElementById("playlistModal").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) {
+    closePlaylistModal();
+  }
+});
+
+function createNewPlaylist(playlistName) {
   fetch(`https://api.spotify.com/v1/users/${currentUser.id}/playlists`, {
     method: "POST",
     headers: {
@@ -389,7 +414,6 @@ function showView(view) {
   // Update active menu item
   homeBtn.classList.remove("active");
   searchBtn.classList.remove("active");
-  libraryBtn.classList.remove("active");
 
   switch (view) {
     case "home":
@@ -399,10 +423,6 @@ function showView(view) {
     case "search":
       searchResults.style.display = "block";
       searchBtn.classList.add("active");
-      break;
-    case "library":
-      playlistView.style.display = "block";
-      libraryBtn.classList.add("active");
       break;
   }
 }

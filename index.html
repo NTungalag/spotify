@@ -34,14 +34,12 @@
               <i class="fas fa-home"></i> Home
             </li>
             <li id="search-btn"><i class="fas fa-search"></i> Search</li>
-            <li id="library-btn"><i class="fas fa-book"></i> Your Library</li>
-          </ul>
+         </ul>
         </div>
 
         <div class="playlists" id="playlists-section" style="display: none">
           <h3>YOUR PLAYLISTS</h3>
           <ul id="playlist-list">
-            <!-- Playlists will be loaded here -->
           </ul>
           <button class="create-playlist" id="create-playlist-btn">
             <i class="fas fa-plus"></i> Create Playlist
@@ -97,6 +95,23 @@
             <h2>Search Results</h2>
             <div class="results-container" id="results-container">
               <!-- Search results will appear here -->
+            </div>
+          </div>
+          
+          <!-- modal section-->
+          <div id="playlistModal" class="modal" style="display: none;">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Create New Playlist</h2>
+              <form id="playlistForm">
+                <input 
+                  type="text" 
+                  id="playlistName" 
+                  placeholder="Enter playlist name" 
+                  required
+                />
+                <button type="submit">Create</button>
+              </form>
             </div>
           </div>
         </div>
